@@ -5,7 +5,7 @@
 #include <list>
 #include <memory>
 #include "Activities_description.h"
-#include "ncurses.h"
+#include <ncurses.h>
 
 #ifndef ACTIVITIES_TRACKER_DAY_PROGRAM_OF_ACTIVITIES_H
 #define ACTIVITIES_TRACKER_DAY_PROGRAM_OF_ACTIVITIES_H
@@ -33,7 +33,7 @@ public:
 
     int time_convertor(const std::string& time) const;
 
-    void show_program();
+    void show_program() const;
 
     const std::list<std::shared_ptr<Activities_description>> &get_day_activities() const {
         return day_activities;

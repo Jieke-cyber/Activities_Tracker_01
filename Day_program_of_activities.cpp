@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Day_program_of_activities.h"
 #include <exception>
+
 void Day_program_of_activities::add_activity(const std::string &name, const std::string& time_start, const std::string& time_end) {
     std::list<std::shared_ptr<Activities_description>>::iterator it = day_activities.begin() ;
     if(time_convertor(time_start) >= time_convertor(time_end))
@@ -49,19 +50,16 @@ int Day_program_of_activities::time_convertor(const std::string& time) const {
     return hours*60 + minutes;
 }
 
-void Day_program_of_activities::show_program() {
+void Day_program_of_activities::show_program() const{
     initscr();
     clear();
     printf("Activities_program of %d' day\n", day_number);
 
     for(auto &activity : day_activities) {
         int i = 4;
-        int row, col;
-        std::string intro = "Activities program of %d' day";
         initscr();
         clear();
-        getmaxyx(stdscr, row, col);
-        mvprintw(0, (col- intro.length())/2 ,"Activities program of %d' day", day_number);
+        printw("Activities program of %d' day", day_number);
         mvprintw(2, 0, "Activity:");
         mvprintw(2, 50, "Start time:");
         mvprintw(2, 100, "End time:");
@@ -71,7 +69,7 @@ void Day_program_of_activities::show_program() {
             mvprintw(i, 100, "%s", activity->get_activity_time_end().c_str());
             i+=2;
         }
-        printw("\n\nToday you have %d activities have to do\n", count);
+        printw("\n\nToday you have %d activities have to do", count);
         refresh();
         getch();
         endwin();
