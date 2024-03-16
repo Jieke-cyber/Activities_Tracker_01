@@ -32,9 +32,6 @@ TEST(Day_program_of_activities, Is_inserted_test) {
     ASSERT_TRUE(day.is_inserted("running"));
 }
 
-// fammi il test delll'exception per il tempo inizio e tempo finale
-
-
 TEST(Day_program_of_activities, Exeception_test) {
     Day_program_of_activities day(1);
     ASSERT_THROW(day.add_activity("running", "11:00", "10:00"), std::logic_error);
