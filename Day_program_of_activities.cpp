@@ -25,7 +25,7 @@ void Day_program_of_activities::add_activity(const std::string &name, const std:
 
 bool Day_program_of_activities::remove_activity(const std::string &nome)
 {
-    for(auto &activity : day_activities) {
+    for(const auto &activity : day_activities) {
         if(activity->get_activity_name() == nome) {
             day_activities.remove(activity);
             count--;
@@ -74,4 +74,5 @@ void Day_program_of_activities::show_program() const{
         getch();
         endwin();
     }
+
 }
