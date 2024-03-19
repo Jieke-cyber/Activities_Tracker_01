@@ -11,7 +11,7 @@ void Day_activities::add_activity(const std::string &name, const std::string& ti
         printf("Activity already exists\n");
     } else {
         for(const auto &activity : day_activities) {
-            if(time_convertor(time_end)< time_convertor(activity->get_time().get_time_start())) {
+            if(activity->get_time().time_convertor(activity->get_time().get_time_end())< activity->get_time().time_convertor(activity->get_time().get_time_start())) {
                 break;
             }
             it ++;
@@ -59,7 +59,7 @@ void Day_activities::show_program() const{
             mvprintw(i, 100, "%s", activity->get_time().get_time_end().c_str());
             i+=2;
         }
-        printw("\n\nToday you have %d activities have to do", day_activities.size());
+        printw("\n\nToday you have %ld activities have to do", day_activities.size());
         refresh();
         getch();
         endwin();
