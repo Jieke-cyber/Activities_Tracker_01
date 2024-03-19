@@ -22,6 +22,7 @@ public:
         }
     };
 
+
     ~Day_activities() noexcept{};
 
     int get_day_number() const{
@@ -41,6 +42,7 @@ public:
         return day_activities;
     }
 
+    std::list<std::shared_ptr<Activities_description>> return_specific_time_activities(const std::string& time) const;
 
 };
 

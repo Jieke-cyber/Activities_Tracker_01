@@ -2,7 +2,17 @@
 #include <map>
 #include "Day_activities.h"
 
-
+void show_specific_activities(const std::list<std::shared_ptr<Activities_description>>& l, const std::string& time) {
+    initscr();
+    clear();
+    printw("List of activities after %s :\n",time.c_str());
+    for(const auto& activity : l){
+        printw("%s\n", activity->get_activity_name().c_str());
+    }
+    refresh();
+    getch();
+    endwin();
+}
 int main() {
         std::map <int, std::shared_ptr<Day_activities>> week;
         week[1] = std::make_shared<Day_activities>(1);
@@ -12,20 +22,21 @@ int main() {
         week[5] = std::make_shared<Day_activities>(5);
         week[6] = std::make_shared<Day_activities>(6);
         week[7] = std::make_shared<Day_activities>(7);
-        week[1]->add_activity("Study", "8:00", "10:00");
-        week[1]->add_activity("Work", "10:01", "12:00");
-        week[1]->add_activity("Lunch", "12:01", "13:00");
-        week[1]->add_activity("job", "3:00", "7:00");
-        week[2]->add_activity("Study", "8:00", "10:00");
-        week[3]->add_activity("Study", "8:00", "10:00");
-        week[4]->add_activity("Study", "8:00", "10:00");
-        week[5]->add_activity("Study", "8:00", "10:00");
-        week[6]->add_activity("Study", "8:00", "10:00");
-        week[7]->add_activity("Study", "8:00", "10:00");
+        week[1]->add_activity( "8:00", "10:00", "Study");
+        week[1]->add_activity("10:01", "12:00", "Work");
+        week[1]->add_activity("12:01", "13:00", "Lunch");
+        week[1]->add_activity("3:00", "7:00", "Job");
+        week[2]->add_activity( "8:00", "10:00", "Study");
+        week[3]->add_activity( "8:00", "10:00", "Study");
+        week[4]->add_activity( "8:00", "10:00", "Study");
+        week[5]->add_activity( "8:00", "10:00", "Study");
+        week[6]->add_activity( "8:00", "10:00", "Study");
+        week[7]->add_activity( "8:00", "10:00", "Study");
+
     /*for(int i= 1; i <= 7; i++) {
         week[i]->show_program();
-    }
-    */
+    }*/
+
 
     /*
     week[1]->show_program();
@@ -40,7 +51,7 @@ int main() {
     getch();
     endwin();
     week[1]->show_program();
-    */
+     */
 
     /*week[1]->show_program();
     initscr();
@@ -53,5 +64,8 @@ int main() {
     refresh();
     getch();
     endwin();*/
+
+
+    show_specific_activities(week[1]->return_specific_time_activities("10:00"), "10:00");
 
 }

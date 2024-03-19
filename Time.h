@@ -12,7 +12,7 @@ private:
     std::string activity_time_end;
 public:
     Time(std::string ts, std::string te) : activity_time_start(ts),  activity_time_end(te) {
-        if(time_convertor(ts)>= time_convertor(te))
+        if(time_convertor(ts) >= time_convertor(te))
             throw std::logic_error("Start time must be less than end time");
     }
 

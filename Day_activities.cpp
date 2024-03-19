@@ -5,18 +5,18 @@
 #include "Day_activities.h"
 #include <exception>
 
-void Day_activities::add_activity(const std::string &name, const std::string& time_start, const std::string& time_end) {
+void Day_activities::add_activity(const std::string& time_start, const std::string& time_end, const std::string &name) {
     std::list<std::shared_ptr<Activities_description>>::iterator it = day_activities.begin();
     if(is_inserted(name)) {
-        printf("Activity already exists\n");
+        throw std::logic_error("Activity already inserted");
     } else {
         for(const auto &activity : day_activities) {
-            if(activity->get_time().time_convertor(activity->get_time().get_time_end())< activity->get_time().time_convertor(activity->get_time().get_time_start())) {
+            if(activity->get_time().time_convertor(time_end) < activity->get_time().time_convertor(activity->get_time().get_time_start())) {
                 break;
             }
             it ++;
         }
-        day_activities.insert(it, std::make_shared<Activities_description>(name, time_start, time_end));
+        day_activities.insert(it, std::make_shared<Activities_description>(time_start, time_end, name));
     }
 }
 
@@ -65,4 +65,14 @@ void Day_activities::show_program() const{
         endwin();
     }
 
+}
+
+std::list<std::shared_ptr<Activities_description>> Day_activities::return_specific_time_activities(const std::string &time) const {
+    std::list<std::shared_ptr<Activities_description>> specific_time_activities;
+    for(const auto &activity : day_activities) {
+        if(activity->get_time().time_convertor(activity->get_time().get_time_start()) > activity->get_time().time_convertor(time)){
+            specific_time_activities.push_back(activity);
+        }
+    }
+    return specific_time_activities;
 }
