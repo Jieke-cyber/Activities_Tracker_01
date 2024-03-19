@@ -16,7 +16,11 @@ private:
     int day_number;
     std::list<std::shared_ptr<Activities_description>> day_activities;
 public:
-    explicit Day_activities(int day_number) : day_number(day_number) {};
+    explicit Day_activities(int day_number) : day_number(day_number) {
+        if(day_number <= 0) {
+            throw std::logic_error("Day number must be greater than 0");
+        }
+    };
 
     ~Day_activities() noexcept{};
 
