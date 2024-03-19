@@ -9,8 +9,7 @@
 class Activities_description {
 private:
     std::string activity_name;
-    std::string activity_time_start;
-    std::string activity_time_end;
+
 public:
     Activities_description(std::string name, const std::string& time_start, const std::string& time_end) : activity_name(name),
     activity_time_start(time_start), activity_time_end(time_end) {};
