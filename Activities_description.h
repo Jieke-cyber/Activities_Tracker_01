@@ -29,6 +29,10 @@ public:
     void set_activity_name (const std::string& name) {
         activity_name = name;
     }
+
+    const Time& get_time() const {
+        return time;
+    }
 };
 
 

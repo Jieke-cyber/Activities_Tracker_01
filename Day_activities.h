@@ -11,15 +11,14 @@
 #define ACTIVITIES_TRACKER_DAY_PROGRAM_OF_ACTIVITIES_H
 
 
-class Day_program_of_activities {
+class Day_activities {
 private:
     int day_number;
     std::list<std::shared_ptr<Activities_description>> day_activities;
-    int count = 0;
 public:
-    Day_program_of_activities(int day_number) : day_number(day_number) {};
+    explicit Day_activities(int day_number) : day_number(day_number) {};
 
-    ~Day_program_of_activities() noexcept{};
+    ~Day_activities() noexcept{};
 
     int get_day_number() const{
         return day_number;
@@ -39,7 +38,7 @@ public:
         return day_activities;
     }
 
-    const std::list<std::shared_ptr<Activities_description>> &get_activities_specific_time
+
 };
 
 

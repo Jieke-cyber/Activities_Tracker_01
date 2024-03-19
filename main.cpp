@@ -1,17 +1,17 @@
 #include <iostream>
 #include <map>
-#include "Day_program_of_activities.h"
+#include "Day_activities.h"
 
 
 int main() {
-        std::map <int, std::shared_ptr<Day_program_of_activities>> week;
-        week[1] = std::make_shared<Day_program_of_activities>(1);
-        week[2] = std::make_shared<Day_program_of_activities>(2);
-        week[3] = std::make_shared<Day_program_of_activities>(3);
-        week[4] = std::make_shared<Day_program_of_activities>(4);
-        week[5] = std::make_shared<Day_program_of_activities>(5);
-        week[6] = std::make_shared<Day_program_of_activities>(6);
-        week[7] = std::make_shared<Day_program_of_activities>(7);
+        std::map <int, std::shared_ptr<Day_activities>> week;
+        week[1] = std::make_shared<Day_activities>(1);
+        week[2] = std::make_shared<Day_activities>(2);
+        week[3] = std::make_shared<Day_activities>(3);
+        week[4] = std::make_shared<Day_activities>(4);
+        week[5] = std::make_shared<Day_activities>(5);
+        week[6] = std::make_shared<Day_activities>(6);
+        week[7] = std::make_shared<Day_activities>(7);
         week[1]->add_activity("Study", "8:00", "10:00");
         week[1]->add_activity("Work", "10:01", "12:00");
         week[1]->add_activity("Lunch", "12:01", "13:00");

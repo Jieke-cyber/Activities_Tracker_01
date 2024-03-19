@@ -9,8 +9,8 @@ find_package(Curses REQUIRED)
 include_directories(${CURSES_INCLUDE_DIR})
 set(SOURCE_FILE Activities_description.cpp
         Activities_description.h
-        Day_program_of_activities.cpp
-        Day_program_of_activities.h
+        Day_activities.cpp
+        Day_activities.h
         Time.cpp
         Time.h)
 add_executable(Activities_Tracker main.cpp)
