@@ -14,8 +14,8 @@ TEST(Day_activities, Add_activity_test) {
     day.add_activity("running", "10:00", "11:00");
     std::list<std::shared_ptr<Activities_description>> Day_activities = day.get_day_activities();
     ASSERT_EQ(Day_activities.front()->get_activity_name(), "running");
-    ASSERT_EQ(Day_activities.front()->get_activity_time_start(), "10:00");
-    ASSERT_EQ(Day_activities.front()->get_activity_time_end(), "11:00");
+    ASSERT_EQ(Day_activities.front()->get_time().get_time_start(), "10:00");
+    ASSERT_EQ(Day_activities.front()->get_time().get_time_end(), "11:00");
 }
 
 TEST(Day_activities, Remove_activity_test) {
