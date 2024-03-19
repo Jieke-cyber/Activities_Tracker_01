@@ -25,4 +25,7 @@ TEST(Activities_description, Getter_test) {
     ASSERT_EQ(activity.get_time().get_time_end(), "11:00");
 }
 
+TEST(Activities_description, Exception_test) {
+    ASSERT_THROW(Activities_description activity("", "11:00", "10:00"), std::logic_error);
+}
 
