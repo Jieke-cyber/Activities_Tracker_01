@@ -30,7 +30,6 @@ public:
 
     bool is_inserted(const std::string &name) const;
 
-    int time_convertor(const std::string& time) const;
 
     void show_program() const;
 

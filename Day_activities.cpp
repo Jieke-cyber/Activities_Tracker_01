@@ -40,12 +40,6 @@ bool Day_activities::is_inserted(const std::string& name) const {
     return false;
 }
 
-int Day_activities::time_convertor(const std::string& time) const {
-    int hours, minutes;
-    sscanf(time.c_str(), "%d:%d", &hours, &minutes);
-    return hours*60 + minutes;
-}
-
 void Day_activities::show_program() const{
     initscr();
     clear();
