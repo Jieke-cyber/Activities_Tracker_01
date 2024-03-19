@@ -24,8 +24,8 @@ TEST(Time, Exception_test) {
 
 TEST(Time, Convertor_test) {
     Time time("10:00", "11:00");
-    ASSERT_EQ(time.time_convertor("10:00"), 10);
-    ASSERT_EQ(time.time_convertor("11:00"), 11);
+    ASSERT_EQ(time.time_convertor("10:00"), 10*60);
+    ASSERT_EQ(time.time_convertor("11:00"), 11*60);
 }
 
 TEST(Time, Getters_test) {
