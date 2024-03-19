@@ -38,6 +38,8 @@ public:
     const std::list<std::shared_ptr<Activities_description>> &get_day_activities() const {
         return day_activities;
     }
+
+    const std::list<std::shared_ptr<Activities_description>> &get_activities_specific_time
 };
 
 

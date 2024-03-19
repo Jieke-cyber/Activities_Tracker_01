@@ -21,7 +21,9 @@ TEST(Day_program_of_activities, Add_activity_test) {
 TEST(Day_program_of_activities, Remove_activity_test) {
     Day_program_of_activities day(1);
     day.add_activity("running", "10:00", "11:00");
+    day.add_activity("run", "13:00", "16:00");
     day.remove_activity("running");
+
     std::list<std::shared_ptr<Activities_description>> Day_activities = day.get_day_activities();
     ASSERT_EQ(Day_activities.size(), 0);
 }
@@ -29,6 +31,7 @@ TEST(Day_program_of_activities, Remove_activity_test) {
 TEST(Day_program_of_activities, Is_inserted_test) {
     Day_program_of_activities day(1);
     day.add_activity("running", "10:00", "11:00");
+    day.add_activity("run", "10:00", "11:00");
     ASSERT_TRUE(day.is_inserted("running"));
 }
 
